@@ -10,3 +10,5 @@ Unofficial pytorch implementation of Momentum Contrast for Unsupervised Visual R
 - PyYAML 3.12 (Optional)  
 
 ### Dataset
+- ImageNet ILSVRC2012 dataset
+- STL-10 dataset
