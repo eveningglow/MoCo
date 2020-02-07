@@ -9,6 +9,9 @@ Unofficial pytorch implementation of Momentum Contrast for Unsupervised Visual R
 - matplotlib 2.0.2
 - PyYAML 3.12 (Optional)  
 
-### Dataset
-- ImageNet - Download the dataset and untar.
-- STL-10 - PyTorch offers this dataset
+### Dataset  
+####ImageNet  
+Download the dataset and untar.  
+
+####STL-10  
+PyTorch offers this dataset  
