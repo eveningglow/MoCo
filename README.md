@@ -10,7 +10,11 @@ Unofficial pytorch implementation of Momentum Contrast for Unsupervised Visual R
 
 ## Dataset  
 ### ImageNet  
-Download the dataset and untar.  
+``` 
+cd dataset  
+wget http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar  
+tar xvf ILSVRC2012_img_train.tar  
+```  
 
 ### STL-10  
 PyTorch offers this dataset  
