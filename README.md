@@ -10,6 +10,7 @@ Unofficial pytorch implementation of __Momentum Contrast for Unsupervised Visual
 
 ## Dataset  
 ### ImageNet  
+Download the dataset and untar.  
 ``` 
 cd dataset  
 wget http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar  
