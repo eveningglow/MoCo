@@ -17,4 +17,4 @@ tar xvf ILSVRC2012_img_train.tar
 ```  
 
 ### STL-10  
-PyTorch offers this dataset  
+PyTorch offers this dataset. See dataloader.py for details.  
