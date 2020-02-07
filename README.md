@@ -10,7 +10,7 @@ Unofficial pytorch implementation of __Momentum Contrast for Unsupervised Visual
 
 ## Dataset  
 ### ImageNet  
-Download the dataset and untar.  
+Download the dataset and untar. It will create subdirectories for each class with images belonging to that class.   
 ``` 
 cd dataset  
 wget http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar  
@@ -18,7 +18,7 @@ tar xvf ILSVRC2012_img_train.tar
 ```  
 
 ### STL-10  
-One can download this dataset from [here](http://ai.stanford.edu/~acoates/stl10/), or just use [torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html). This repository handles STL-10 dataset via torchvision. Please check dataloader.py for details.
+One can download this dataset from [here](http://ai.stanford.edu/~acoates/stl10/), or just use [torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html). This repository handles STL-10 dataset via torchvision. Please check ```dataloader.py``` for details.
 
 ## Hardware  
 All results in this repository are produced with 6 NVIDIA TITAN Xp GPUs. To produce the best performance, multi-gpu is necessary.
