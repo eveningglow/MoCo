@@ -32,4 +32,9 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```.
 
 ## Test  
+You can evaluate the pretrained encoder with STL-10 dataset by running the command below.
+```bash
+CUDA_VISIBLE_DEVICES=0 python test.py --dataset_root=YOUR_ROOT/STL-10 --encoder_dataset_name=IMAGENET-64 --output_root=output --exp_version=v1 --load_epoch=100
+```
+```
 I evaluated the pretrained encoder by training a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset (```test.py```).
