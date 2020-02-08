@@ -29,6 +29,7 @@ You can train Resnet-50 encoder in self-supervised manner with ImageNet dataset 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
 ```
-  
+The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```.
+
 ## Test  
 I evaluated the pretrained encoder by training a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset (```test.py```).
