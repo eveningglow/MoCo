@@ -26,7 +26,7 @@ All results in this repository are produced with __6 NVIDIA TITAN Xp GPUs__. To 
   
 ## Training  
 ### Setting  
-I pretrained Resnet-50 encoder in self-supervised manner with ImageNet dataset (```train.py```). You can train the encoder with the command below.  
+I pretrained Resnet-50 encoder in self-supervised manner with ImageNet dataset (```train.py```). You can train the encoder with the command below. Note that the default value for each argument is the setting for the best performance.
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
 ```
