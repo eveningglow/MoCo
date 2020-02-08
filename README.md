@@ -72,4 +72,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 - In Fig. 1a, __M1__ is not converged. It shows the importance of momentum encoder. Note that __M1__ is early stopped because it does not seem to be converged.  
 - In Fig. 1b and 1d, __M4__ is trained more stably than __M2__. It shows the importance of momentum encoder.  
 - In Fig. 1c and 1d, __M3__ is converged, but __M4__ is converged better than __M3__ with lower loss value.
-- Therefore, Fig1. 1 shows that the consistency of dictionary due to momentum is the core of training. Shuffled batch norm can improve the training, but it is not the core.
+- Therefore, Fig1. 1 shows that the consistency of dictionary due to the momentum is the core of training. Shuffled batch norm can improve the training, but it is not the core.
