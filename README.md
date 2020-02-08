@@ -42,21 +42,21 @@ This command will train a linear feature classifier that takes the feature vecto
 This repository shows the effectiveness of main contributions, but the performance can be improved by careful consideration on data augmentation manner, or increasing training epoch, number of keys, and size of images.  
 
 ### Models
-Results are produced with four models. Each model has difference with other models on momentum value (_m_) and whether to use shuffled batch norm (SBN) or not (BN).  
+Results are produced with four models. Each model has difference with other models on momentum value (_m_) and whether to use shuffled batch norm (SBN) or not (BN). Descriptions below show each setting with training command.  
 
 - _m_ = 0 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --momentum=0 --save_config 
 ```  
 - _m_ = 0.9 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --momentum=0.9 --save_config 
 ```  
 - _m_ = 0.999 / BN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --save_config 
 ```  
 - _m_ = 0.999 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --momentum=0.999 --save_config 
 ```  
