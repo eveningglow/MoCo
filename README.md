@@ -1,4 +1,4 @@
-# Momentum Contrast for Unsupervised Visual Representation Learning
+# MoCo: Momentum Contrast for Unsupervised Visual Representation Learning
 Unofficial pytorch implementation of __Momentum Contrast for Unsupervised Visual Representation Learning__ ([Paper](https://arxiv.org/abs/1911.05722)).  
 
 ## Requirements  
@@ -25,3 +25,4 @@ All results in this repository are produced with __6 NVIDIA TITAN Xp GPUs__. To 
   
 ## Training  
 ### Setting  
+I pretrained Resnet-50 encoder in self-supervised manner with ImageNet dataset (```train.py```) and evaluated this pretrained encoder by training a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset (```test.py```).
