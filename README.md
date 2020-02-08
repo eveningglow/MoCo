@@ -44,19 +44,19 @@ This repository shows the effectiveness of main contributions, but the performan
 ### Models
 Results are produced with four models. Each model has difference with other models on momentum value (_m_) and whether to use shuffled batch norm (SBN) or not (BN). Descriptions below show each setting with training command.  
 
-- M1: _m_ = 0 / SBN
+- __M1__: _m_ = 0 / SBN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0 --shuffle_bn --save_config 
 ```  
-- M2: _m_ = 0.9 / SBN
+- __M2__: _m_ = 0.9 / SBN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.9 --shuffle_bn --save_config 
 ```  
-- M3: _m_ = 0.999 / BN
+- __M3__: _m_ = 0.999 / BN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --save_config 
 ```  
-- M4: _m_ = 0.999 / SBN
+- __M4__: _m_ = 0.999 / SBN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --shuffle_bn --save_config 
 ```  
