@@ -67,3 +67,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 - __M4__ will have higher classifcation accuracy than __M3__ because of shuffled batch norm. Check _shuffling BN_ in _Section 3.3_.  
 
 #### Results
+<p align="center"><img width="100%" src="png/random_sample.pdf" /></p>  
