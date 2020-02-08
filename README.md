@@ -36,4 +36,5 @@ You can evaluate the pretrained encoder with STL-10 dataset by running the comma
 ```bash
 CUDA_VISIBLE_DEVICES=0 python test.py --dataset_root=YOUR_ROOT/STL-10 --load_epoch=100
 ```
-This command will train a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset.
+This command will train a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset. If you train the encoder by running the command above, this command will automatically load pretrained weight from ```MoCo/output/IMAGENET-64/v1```. If you changed any arguments among ```--output_root```, ```--dataset_name```, and ```--exp_version``` when training, you should consistently change ```--encoder_output_root```, ```encoder_dataset_name```, and ``encoder_exp_version``` when testing.
+
