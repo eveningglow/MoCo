@@ -38,3 +38,5 @@ CUDA_VISIBLE_DEVICES=0 python test.py --dataset_root=YOUR_ROOT/STL-10 --load_pre
 ```
 This command will train a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset. If you train the encoder by running the command above without changing anything, this command will automatically load pretrained weight from ```MoCo/output/IMAGENET-64/v1```. If you changed any arguments among ```--output_root```, ```--dataset_name```, and ```--exp_version``` when training, you should consistently change ```--encoder_output_root```, ```encoder_dataset_name```, and ```encoder_exp_version``` when testing.
 
+## Results
+We reproduce the effectiveness of main contributions, but the performance can be improved by careful consideration on data augmentation manner, or increasing training epoch, number of keys, and size of images.
