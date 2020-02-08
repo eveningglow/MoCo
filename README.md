@@ -9,7 +9,7 @@ Unofficial pytorch implementation of __Momentum Contrast for Unsupervised Visual
 - PyYAML 3.12 (Optional)  
 
 ## Dataset  
-### ImageNet  
+#### ImageNet  
 Download the dataset and untar. It will create subdirectories for each class with images belonging to that class.   
 ``` 
 cd YOUR_ROOT  
@@ -18,7 +18,7 @@ tar xvf ILSVRC2012_img_train.tar
 ```  
 As a result, the subdirectories for training dataset will be located in ```YOUR_ROOT/ILSVRC/Data/CLS-LOC/train```.
 
-### STL-10  
+#### STL-10  
 One can download this dataset from [here](http://ai.stanford.edu/~acoates/stl10/), or just use [torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html). This repository handles STL-10 dataset via torchvision. Please check ```dataloader.py``` for details.
 
 ## Hardware  
@@ -41,7 +41,7 @@ This command will train a linear feature classifier that takes the feature vecto
 ## Results
 This repository shows the effectiveness of main contributions, but the performance can be improved by careful consideration on data augmentation manner, or increasing training epoch, number of keys, and size of images.  
 
-### Models
+#### Models
 Results are produced with four models. Each model has difference with other models on momentum value (_m_) and whether to use shuffled batch norm (SBN) or not (BN). Descriptions below show each setting with training command.  
 
 - __M1__: _m_ = 0 / SBN
