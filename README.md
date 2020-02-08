@@ -68,5 +68,6 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 
 #### Results
 <p align="center"><img width="100%" src="img/loss.png" /></p>  
+
 - In Fig. 1a, __M1__ is not converged. It shows the importance of momentum encoder. Note that __M1__ is early stopped because it does not seem to be converged.  
 - In Fig. 1b and 1d, __M4__ is trained more stably than __M2__. It shows the importance of momentum encoder.  
