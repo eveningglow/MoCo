@@ -42,34 +42,34 @@ This command will train a linear feature classifier that takes the feature vecto
 This repository shows the effectiveness of main contributions, but the performance can be improved by careful consideration on data augmentation manner, or increasing training epoch, number of keys, and size of images.  
 
 #### Models
-Results are produced with four models. Each model has difference with other models on momentum value (_m_) and whether to use shuffled batch norm (SBN) or not (BN). Descriptions below show each setting with training command.  
+Results are produced with four models. Each model has difference with other models on __momentum value (_m_)__ and whether to use __shuffled batch norm__ (SBN) or not (BN). Descriptions below show each setting with training command.  
 
-- __M1__: _m_ = 0 / SBN
+- __M0__: _m_ = 0 / SBN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0 --shuffle_bn --save_config 
 ```  
-- __M2__: _m_ = 0.9 / SBN
+- __M1__: _m_ = 0.9 / SBN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.9 --shuffle_bn --save_config 
 ```  
-- __M3__: _m_ = 0.999 / BN
+- __M2__: _m_ = 0.999 / BN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --save_config 
 ```  
-- __M4__: _m_ = 0.999 / SBN
+- __M3__: _m_ = 0.999 / SBN
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --shuffle_bn --save_config 
 ```  
 
 #### Expectations  
-- __M1__ will not be converged because it does not have momentum. The training loss will oscillate. Check _Ablation: momentum_ in _Section.4.1_.  
-- __M2__ will be converged but __M4__ will have higher classifcation accuracy than __M2__ because of more consistent dictionary due to a higher momentum value. Check _Ablation: momentum_ in _Section.4.1_.  
-- __M4__ will have higher classifcation accuracy than __M3__ because of shuffled batch norm. Check _shuffling BN_ in _Section 3.3_.  
+- __M0__ will not be converged because it does not have momentum. The training loss will oscillate. Check _Ablation: momentum_ in _Section.4.1_.  
+- __M1__ will be converged but __M3__ will have higher classifcation accuracy than __M1__ because of more consistent dictionary due to a higher momentum value. Check _Ablation: momentum_ in _Section.4.1_.  
+- __M3__ will have higher classifcation accuracy than __M2__ because of shuffled batch norm. Check _shuffling BN_ in _Section 3.3_.  
 
 #### Results
 <p align="center"><img width="100%" src="img/loss.png" /></p>  
 
-- In Fig. 1a, __M1__ is not converged. It shows the importance of momentum encoder. Note that __M1__ is early stopped because it does not seem to be converged.  
-- In Fig. 1b and 1d, __M4__ is trained more stably than __M2__. It shows the importance of momentum encoder.  
-- In Fig. 1c and 1d, __M3__ is converged, but __M4__ is converged better than __M3__ with lower loss value.
+- In Fig. 1a, __M0__ is not converged. It shows the importance of momentum encoder. Note that __M0__ is early stopped because it does not seem to be converged.  
+- In Fig. 1b and 1d, __M3__ is trained more stably than __M1__. It shows the importance of momentum encoder.  
+- In Fig. 1c and 1d, __M2__ is converged, but __M3__ is converged better than __M2__ with lower loss value.
 - Therefore, Fig. 1 shows that the consistency of dictionary due to the momentum is the core of training. Shuffled batch norm can improve the training, but it is not the core.
