@@ -27,7 +27,7 @@ All results in this repository are produced with __6 NVIDIA TITAN Xp GPUs__. To 
 ## Training  
 You can train Resnet-50 encoder in self-supervised manner with ImageNet dataset by running the command below.
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn 
 ```
 The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```. You can change this location by changing the arguments ```--output_root```, ```--dataset_name```, and ```--exp_version```.
 
@@ -46,19 +46,19 @@ Results are produced with four models. Each model has difference with other mode
 
 - __M0__: _m_ = 0 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0 --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0 --shuffle_bn
 ```  
 - __M1__: _m_ = 0.9 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.9 --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.9 --shuffle_bn
 ```  
 - __M2__: _m_ = 0.999 / BN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999  
 ```  
 - __M3__: _m_ = 0.999 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --shuffle_bn --save_config 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --shuffle_bn 
 ```  
 
 #### Expectations  
