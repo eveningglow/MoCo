@@ -63,15 +63,19 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 
 #### Expectations  
 - __M0__ will not be converged because it does not have momentum. The training loss will oscillate. Check _Ablation: momentum_ in _Section.4.1_.  
-- __M1__ will be converged but __M3__ will have higher classifcation accuracy than __M1__ because of more consistent dictionary due to a higher momentum value. Check _Ablation: momentum_ in _Section.4.1_.  
-- __M3__ will have higher classifcation accuracy than __M2__ because of shuffled batch norm. Check _shuffling BN_ in _Section 3.3_.  
+- __M1__ will be converged but __M3__ will have higher classifcation accuracy than __M1__ because of __more consistent dictionary__ due to a higher momentum value. Check _Ablation: momentum_ in _Section.4.1_.  
+- __M3__ will have higher classifcation accuracy than __M2__ because of __shuffled batch norm__. Check _shuffling BN_ in _Section 3.3_.  
 
 #### Results
 <p align="center"><img width="100%" src="img/loss.png" /></p>  
 
-- In Fig. 1a, __M0__ is not converged. It shows the importance of momentum encoder. Note that __M0__ is early stopped because it does not seem to be converged.  
+- In Fig. 1a, __M0__ does not converge. It shows the importance of momentum encoder. Note that __M0__ is early stopped because it does not seem to be converged.  
 - In Fig. 1b and 1d, __M3__ is trained more stably than __M1__. It shows the importance of momentum encoder.  
 - In Fig. 1c and 1d, __M2__ is converged, but __M3__ is converged better than __M2__ with lower loss value.
 - Therefore, Fig. 1 shows that the consistency of dictionary due to the momentum is the core of training. Shuffled batch norm can improve the training, but it is not the core.
   
 <p align="center"><img width="100%" src="img/accr.png" /></p>  
+  
+- __M0__ is excluded becuase it does not converge.
+- __M2__ records much higher classifcation accuracy than __M1__. Note that the only one difference between __M1__ and __M2__ is _m_. It shows the importance of consistent dictionary.  
+- __M3__ records higher classification accuracy than __M2__, but the gap between __M3__ and __M2__ is not as large as that between __M2__ and __M1__. Furthermore, the model does not converge without momentum as shown by __M0__. Therefore, we can notice that shuffled batch norm is effective but the consistent dictionary is necessary.
