@@ -103,7 +103,7 @@ if config.save_config:
 ''' ######################## < Step 2 > Create instances ######################## '''
 
 # Build dataloader
-print('\n[1 / 3]. Build data loader.. ')
+print('\n[1 / 3]. Build data loader. Depending on your environment, this may take several minutes..')
 dloader, dlen = data_loader(dataset_root=config.dataset_root,
                             resize=config.resize, 
                             crop=config.crop, 
@@ -125,10 +125,13 @@ if config.resume:
     ckpt = torch.load(os.path.join(weight_path, file_name))
     encoder.load_state_dict(ckpt['encoder'])
     
-    with open(os.path.join(loss_path, 'loss.pkl'), 'rb') as f:
-        iter_per_epoch = int(dlen / config.batch_size)
-        start_iter = config.start_epoch * iter_per_epoch
-        loss_hist = pickle.load(f)[:start_iter]
+    try:
+        with open(os.path.join(loss_path, 'loss.pkl'), 'rb') as f:
+            iter_per_epoch = int(dlen / config.batch_size)
+            start_iter = config.start_epoch * iter_per_epoch
+            loss_hist = pickle.load(f)[:start_iter]
+    except:
+        pass
     
 for param in momentum_encoder.parameters():
     param.requires_grad = False

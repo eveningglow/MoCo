@@ -202,7 +202,6 @@ while(epoch < config.max_epoch):
         # Print training status and save log
         total_iters += 1
         print('[Epoch : %d / Total iters : %d] : loss : %f ...' %(epoch, total_iters, loss.item()))
-        #loss_hist.append(loss.item())
     
     epoch += 1
     
