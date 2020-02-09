@@ -107,7 +107,7 @@ print('[2 / 2]. Build models.. \n')
 encoder = nn.DataParallel(model.Resnet50(dim=config.out_dim)).to(dev)
 
 ckpt_name = 'ckpt_' + str(config.load_pretrained_epoch) + '.pkl'
-ckpt_path = os.path.join('output', config.encoder_dataset_name, config.exp_version, 'weight', ckpt_name)
+ckpt_path = os.path.join(config.encoder_output_root, config.encoder_dataset_name, config.encoder_exp_version, 'weight', ckpt_name)
 ckpt = torch.load(ckpt_path)
 encoder.load_state_dict(ckpt['encoder'])
 

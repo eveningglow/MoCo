@@ -71,8 +71,8 @@ parser.add_argument('--save_config', action='store_true',
 
 parser.add_argument('--resume', action='store_true',
                     help='Resume training.')
-parser.add_argument('--start_iter', type=int, default=0,
-                    help='Training is resumed at this iteration.')
+parser.add_argument('--start_epoch', type=int, default=0,
+                    help='Training is resumed at this epoch.')
 
 config = parser.parse_args()
 
@@ -116,6 +116,20 @@ print('\n[2 / 3]. Build models.. ')
 encoder = nn.DataParallel(model.Resnet50(dim=config.feature_dim)).to(dev)
 momentum_encoder = nn.DataParallel(model.Resnet50(dim=config.feature_dim)).to(dev)
 
+# loss history
+loss_hist = []
+
+# If resume, load ckpt and loss history
+if config.resume:
+    file_name = 'ckpt_' + str(config.start_epoch) + '.pkl'
+    ckpt = torch.load(os.path.join(weight_path, file_name))
+    encoder.load_state_dict(ckpt['encoder'])
+    
+    with open(os.path.join(loss_path, 'loss.pkl'), 'rb') as f:
+        iter_per_epoch = int(dlen / config.batch_size)
+        start_iter = config.start_epoch * iter_per_epoch
+        loss_hist = pickle.load(f)[:start_iter]
+    
 for param in momentum_encoder.parameters():
     param.requires_grad = False
 
@@ -127,10 +141,6 @@ optimizer = optim.SGD(encoder.parameters(),
 
 # Loss function
 crossentropy = nn.CrossEntropyLoss()
-
-# Log
-loss_hist = []
-
 
 ''' ######################## < Step 3 > Define methods ######################## '''
 
@@ -192,8 +202,8 @@ with torch.no_grad():
     
 # Training
 print('\nStart training!')
-epoch = 0
-total_iters = 0
+epoch = 0 if not config.resume else config.start_epoch
+total_iters = 0 if not config.resume else int(dlen / config.batch_size) * config.start_epoch
 
 while(epoch < config.max_epoch):
     for i, (x_q, x_k, _) in enumerate(dloader):
