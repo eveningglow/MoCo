@@ -74,7 +74,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 - In Fig. 1c and 1d, __M2__ is converged, but __M3__ is converged better than __M2__ with lower loss value.
 - Therefore, Fig. 1 shows that the consistency of dictionary due to the momentum is the core of training. Shuffled batch norm can improve the training, but it is not the core.
   
-<p align="center"><img width="100%" src="img/accr.png" /></p>  
+<p align="center"><img width="100%" src="img/accr_model_compare.png" /></p>  
   
 - __M0__ is excluded becuase it does not converge.
 - __M2__ records much higher classifcation accuracy than __M1__. Note that the only one difference between __M1__ and __M2__ is _m_. It shows the importance of consistent dictionary.  
