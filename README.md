@@ -2,6 +2,9 @@
 Unofficial pytorch implementation of __Momentum Contrast for Unsupervised Visual Representation Learning__ ([Paper](https://arxiv.org/abs/1911.05722)).  
 
 ## Requirements  
+The environment that this repository is created is as follows.  
+
+- Python 3.6.2
 - PyTorch 1.4.0
 - torchvision 0.5.0
 - PIL 7.0.0
