@@ -11,7 +11,7 @@ The environment that this repository is created is as follows.
 - matplotlib 2.0.2
 - PyYAML 3.12 (Optional)  
   
-Note that torchvision < 0.5.0 does not operate with PIL == 7.0.0 ([link](https://github.com/pytorch/vision/issues/1712)). To use torchvision < 0.5.0, PIL < 7.0.0. is needed.
+Note that torchvision < 0.5.0 does not operate with PIL == 7.0.0 ([link](https://github.com/pytorch/vision/issues/1712)). To use torchvision < 0.5.0, PIL < 7.0.0 is needed.
   
 ## Dataset  
 #### ImageNet  
