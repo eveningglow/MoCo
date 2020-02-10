@@ -46,19 +46,19 @@ Results are produced with four models. Each model has difference with other mode
 
 - __M0__: _m_ = 0 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0 --shuffle_bn
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --exp_version=M0 --momentum=0 --shuffle_bn
 ```  
 - __M1__: _m_ = 0.9 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.9 --shuffle_bn
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --exp_version=M1 --momentum=0.9 --shuffle_bn
 ```  
 - __M2__: _m_ = 0.999 / BN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999  
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --exp_version=M2 --momentum=0.999  
 ```  
 - __M3__: _m_ = 0.999 / SBN
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --momentum=0.999 --shuffle_bn 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --exp_version=M3 --momentum=0.999 --shuffle_bn 
 ```  
 
 #### Expectations  
@@ -75,6 +75,11 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 - Therefore, Fig. 1 shows that the consistency of dictionary due to the momentum is the core of training. Shuffled batch norm can improve the training, but it is not the core.
   
 <p align="center"><img width="100%" src="img/accr_model_compare.png" /></p>  
+  
+After you train __M1__, __M2__, and __M3__ by running commands above, you can plot graph in Fig. 2 by running  
+```bash
+CUDA_VISIBLE_DEVICES=0 python visualize.py --multiple_encoder_exp_version M1 M2 M3
+```
   
 - __M0__ is excluded becuase it does not converge.
 - __M2__ records much higher classifcation accuracy than __M1__. Note that the only one difference between __M1__ and __M2__ is _m_. It shows the importance of consistent dictionary.  
