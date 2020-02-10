@@ -74,7 +74,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 #### Results
 <p align="center"><img width="100%" src="img/loss.png" /></p>  
 
-- In Fig. 1a, __M0__ does not converge. It shows the importance of momentum encoder. Note that __M0__ is early stopped because it does not seem to converge.  
+- In Fig. 1a, __M0__ does not converge. It shows the importance of consistent dictionary in convergence. Although shuffled batch norm is used, the model cannot converge without consistent dictionary. __M0__ is early stopped because it does not seem to converge.  
 - In Fig. 1b and 1d, __M3__ is trained more stably than __M1__. It shows the importance of consistent dictionary.  
 - In Fig. 1c and 1d, __M2__ converges, but __M3__ converges better than __M2__ with lower loss value. Note that Fig. 1c has 1400K iterations and Fig. 1d has 250K iterations on x axis. Although __M3__ is trained for less iterations, it converges better than __M2__.
 - Therefore, Fig. 1 shows that the consistent dictionary is the core of training. Shuffled batch norm can improve the training, but it is not the core.
