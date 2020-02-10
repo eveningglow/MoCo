@@ -67,8 +67,8 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 ```  
 
 #### Expectations  
-- __M0__ will not be converged because it does not have momentum. The training loss will oscillate. Check _Ablation: momentum_ in _Section.4.1_.  
-- __M1__ will be converged but __M3__ will have higher classifcation accuracy than __M1__ because of __more consistent dictionary__ due to a higher momentum value. Check _Ablation: momentum_ in _Section.4.1_.  
+- __M0__ will not converge because it does not have momentum. The training loss will oscillate. Check _Ablation: momentum_ in _Section.4.1_.  
+- __M1__ will converge but __M3__ will have higher classifcation accuracy than __M1__ because of __more consistent dictionary__ due to a higher momentum value. Check _Ablation: momentum_ in _Section.4.1_.  
 - __M3__ will have higher classifcation accuracy than __M2__ because of __shuffled batch norm__. Check _shuffling BN_ in _Section 3.3_.  
 
 #### Results
