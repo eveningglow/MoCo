@@ -87,4 +87,4 @@ CUDA_VISIBLE_DEVICES=0 python visualize.py --multiple_encoder_exp_version M1 M2 
 
 <p align="center"><img width="100%" src="img/accr_epoch_compare.png" /></p>  
 
-- Fig. 3 shows the feature classifcation accuracy with pretrained encoder of M3. It includes several graphs according to epochs that are spent to train M3. The training is done at 50% and still in progress.
+- Fig. 3 shows the feature classifcation accuracy with pretrained encoder of M3. It includes several graphs according to epochs that are spent to train M3. The training is done at 50% and still in progress. Currently, M3-100 (train M3 for 100 epochs) shows the best performance.
