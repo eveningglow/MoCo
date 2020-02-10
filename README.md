@@ -29,10 +29,10 @@ You can train Resnet-50 encoder in self-supervised manner with ImageNet dataset 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn 
 ```
-The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```. You can change this location by changing the arguments ```--output_root```, ```--dataset_name```, and ```--exp_version```.
+All arguments are initialized to ahieve the best performance. The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```. You can change this location by changing the arguments ```--output_root```, ```--dataset_name```, and ```--exp_version```.
 
 ## Test  
-You can evaluate the pretrained encoder with STL-10 dataset by running the command below.
+If you train the model by running the command above, you can evaluate the pretrained encoder with STL-10 dataset by running the command below. You can designate the checkpoint to load with `--load_pretrained_epoch`.    
 ```bash
 CUDA_VISIBLE_DEVICES=0 python test.py --dataset_root=YOUR_ROOT/STL-10 --load_pretrained_epoch=100
 ```
@@ -78,7 +78,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
   
 After you train __M1__, __M2__, and __M3__ by running commands above, you can plot graph in Fig. 2 by running  
 ```bash
-CUDA_VISIBLE_DEVICES=0 python visualize.py --multiple_encoder_exp_version M1 M2 M3
+CUDA_VISIBLE_DEVICES=0 python visualize.py --dataset_root=YOUR_ROOT/STL-10 --multiple_encoder_exp_version M1 M2 M3
 ```
   
 - __M0__ is excluded becuase it does not converge.
