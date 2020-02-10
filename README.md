@@ -29,14 +29,14 @@ You can train Resnet-50 encoder in self-supervised manner with ImageNet dataset 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC/Data/CLS-LOC/train --shuffle_bn 
 ```
-All arguments are initialized to ahieve the best performance. The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```. You can change this location by changing the arguments ```--output_root```, ```--dataset_name```, and ```--exp_version```.
+The training output such as loss graph and weight of the encoder will be saved in ```MoCo/output/IMAGENET-64/v1```. You can change this location by changing the arguments ```--output_root```, ```--dataset_name```, and ```--exp_version```.
 
 ## Test  
 If you train the model by running the command above, you can evaluate the pretrained encoder with STL-10 dataset by running the command below. You can designate the checkpoint to load with `--load_pretrained_epoch`.    
 ```bash
 CUDA_VISIBLE_DEVICES=0 python test.py --dataset_root=YOUR_ROOT/STL-10 --load_pretrained_epoch=100
 ```
-This command will train a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset. If you train the encoder by running the command above without changing anything, this command will automatically load pretrained weight from ```MoCo/output/IMAGENET-64/v1```. If you changed any arguments among ```--output_root```, ```--dataset_name```, and ```--exp_version``` when training, you should consistently change ```--encoder_output_root```, ```encoder_dataset_name```, and ```encoder_exp_version``` when testing.
+This command will train a linear feature classifier that takes the feature vectors from pretrained encoder as inputs with STL-10 dataset. After training a linear feature classifier, it will calculate a classifcation accuracy and plot a graph. If you train the encoder by running the command above without changing anything, this command will automatically load pretrained weight from ```MoCo/output/IMAGENET-64/v1``` and save the test results including loss graph, accuracy graph, and weight of a linear classifier in ```MoCo/output/IMAGENET-64/v1/eval```. If you changed any arguments among ```--output_root```, ```--dataset_name```, and ```--exp_version``` when training, you should consistently change ```--encoder_output_root```, ```encoder_dataset_name```, and ```encoder_exp_version``` when testing.
 
 ## Experimental results
 This repository shows the effectiveness of main contributions, but the performance can be improved by careful consideration on data augmentation manner, or increasing training epoch, number of keys, and size of images.  
