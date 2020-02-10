@@ -79,3 +79,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py --dataset_root=YOUR_ROOT/ILSVRC
 - __M0__ is excluded becuase it does not converge.
 - __M2__ records much higher classifcation accuracy than __M1__. Note that the only one difference between __M1__ and __M2__ is _m_. It shows the importance of consistent dictionary.  
 - __M3__ records higher classification accuracy than __M2__, but the gap between __M3__ and __M2__ is not as large as that between __M2__ and __M1__. Furthermore, the model does not converge without momentum as shown by __M0__. Therefore, we can notice that shuffled batch norm is effective but the consistent dictionary is necessary.
+
+<p align="center"><img width="100%" src="img/accr_epoch_compare.png" /></p>  
+
+- Fig. 3 shows the feature classifcation accuracy with pretrained encoder of M3. It includes several graphs according to epochs that are spent to train M3. The training is done at 50% and still in progress.
