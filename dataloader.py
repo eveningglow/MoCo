@@ -10,10 +10,11 @@ from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms.functional as F
 
 ''' 
-Copied from https://github.com/pytorch/vision/blob/master/torchvision/datasets/folder.py with small changes.
+Codes between ============= <- these lines are copied from https://github.com/pytorch/vision/blob/master/torchvision/datasets/folder.py with small changes.
 Changed part is commented with 'CHANGED'.
 '''
 
+''' =========================================================================================== '''
 def has_file_allowed_extension(filename, extensions):
     return filename.lower().endswith(extensions)
 
@@ -70,7 +71,7 @@ class DatasetFolder(VisionDataset):
         class_to_idx = {classes[i]: i for i in range(len(classes))}
         return classes, class_to_idx
 
-    ''' CHANGED : Return two tensors randomly augmented from the same images '''
+    ''' CHANGED : Return two tensors randomly augmented from the same image '''
     def __getitem__(self, index):
         path, target = self.samples[index]
         sample = self.loader(path)
@@ -121,6 +122,7 @@ class AugImageFolder(DatasetFolder):
                                              target_transform=target_transform,
                                              is_valid_file=is_valid_file)
         self.imgs = self.samples
+''' =========================================================================================== '''
 
 
 def data_loader(dataset_root='/home/nas_datasets/ILSVRC/Data/CLS-LOC/train', resize=84, crop=64, 
